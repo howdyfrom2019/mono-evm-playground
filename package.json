@@ -1,11 +1,16 @@
 {
   "name": "mono-evm-playground",
   "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "build": "turbo build",
-    "dev": "turbo dev",
-    "lint": "turbo lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "build": "turbo build --filter=web",
+    "dev": "turbo dev --filter=web",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "hardhat:compile": "turbo run compile --filter=hardhat",
+    "hardhat:node": "turbo run start --filter=hardhat",
+    "hardhat:test": "turbo run evm:test --filter=hardhat"
   },
   "devDependencies": {
     "prettier": "^3.2.5",

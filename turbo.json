@@ -5,7 +5,15 @@
     "build": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [
+        ".next/**",
+        "!.next/cache/**",
+        "apps/hardhat/artifacts/**",
+        "apps/hardhat/cache/**"
+      ]
+    },
+    "compile": {
+      "cache": false
     },
     "lint": {
       "dependsOn": ["^lint"]
@@ -16,6 +24,10 @@
     "dev": {
       "cache": false,
       "persistent": true
-    }
+    },
+    "evm:test": {
+      "outputs": ["coverage/**"]
+    },
+    "start": { "cache": false }
   }
 }

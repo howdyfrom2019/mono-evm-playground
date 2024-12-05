@@ -1,0 +1,6 @@
+{
+  "extends": "@repo/typescript-config/contract.json",
+  "exclude": ["dist", "node_modules", "test", "**/*.spec.ts"],
+  "include": ["./test", "./src", "./scripts"],
+  "files": ["./hardhat.config.ts"]
+}
